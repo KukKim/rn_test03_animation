@@ -6,9 +6,9 @@ export default function Index() {
   const navigation = useRouter();
 
   useEffect(() => {
-    // setTimeout(() => {
-    //   navigation.replace("/(tabs)");
-    // }, 1000);
+    setTimeout(() => {
+      navigation.replace("/(tabs)");
+    }, 1000);
   }, []);
 
   return (
