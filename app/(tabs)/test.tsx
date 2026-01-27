@@ -1,28 +1,52 @@
+import {
+  CommonBadge,
+  CommonButton,
+  CommonCard,
+  CommonCheckBox,
+  NumberBadge,
+} from "@/components";
 import { useRouter } from "expo-router";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function TestScreen() {
   const router = useRouter();
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text>Test</Text>
-      <TouchableOpacity
+      <CommonCard title="Badge">
+        <CommonBadge typeText="1" />
+        <CommonBadge type="secondary" typeText="3" />
+      </CommonCard>
+      <CommonCard title="Number Badge">
+        <NumberBadge size="l" number={1} />
+        <NumberBadge number={100} maxNumber={99} />
+      </CommonCard>
+
+      <CommonCard title="CheckBox Badge">
+        <CommonCheckBox value={true} />
+      </CommonCard>
+      <CommonButton
         onPress={() => {
-          router.navigate("/animationScreen");
+          router.navigate("/animationScreen/animationTest");
         }}
       >
-        <View>
-          <Text>Animation test</Text>
-        </View>
-      </TouchableOpacity>
-    </View>
+        <Text>Animation test</Text>
+      </CommonButton>
+      <CommonButton
+        onPress={() => {
+          router.navigate("/animationScreen/gestureTest");
+        }}
+      >
+        <Text>Gesture test</Text>
+      </CommonButton>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
     alignItems: "center",
   },
 });
