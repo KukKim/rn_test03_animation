@@ -1,4 +1,4 @@
-import { TextStyle, ViewProps, ViewStyle } from "react-native";
+import { TextStyle, View, ViewProps, ViewStyle } from "react-native";
 
 type Variant = "primary" | "secondary";
 type SizeVariant = "s" | "m" | "l";
@@ -25,16 +25,11 @@ export const fontSizeType: Record<SizeVariant, TextStyle> = {
   l: { fontSize: 14 },
 };
 
-export interface BadgeProps extends ViewProps {
+export interface HeaderProps extends ViewProps {
   type?: Variant;
   size?: SizeVariant;
-}
-
-export interface CommonBadgeProps extends BadgeProps {
-  typeText?: string;
-}
-
-export interface NumberBadgeProps extends BadgeProps {
-  number: number;
-  maxNumber?: number;
+  leftComponent?: View;
+  leftTitle?: string;
+  rightCompnent?: View;
+  rightTitle?: string;
 }

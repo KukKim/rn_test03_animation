@@ -1,20 +1,31 @@
-import Icon from "@expo/vector-icons/AntDesign";
 import { Pressable, StyleSheet } from "react-native";
+import { CommonIcon } from "../icon";
 import { CheckBoxProps, containerType, sizeType } from "./types";
 
 const CommonCheckBox = ({
   children,
-  value = false,
+  value,
+  onValueChange,
   type = "primary",
   size = "m",
   ...props
 }: CheckBoxProps) => {
+  const handleChange = () => {
+    onValueChange?.(!value);
+  };
+
   return (
     <Pressable
+      onPress={handleChange}
       style={[styles.container, sizeType[size], containerType[type]]}
       {...props}
     >
-      {value && <Icon name="check" size={16} color="#000000" />}
+      {value && (
+        <CommonIcon
+          iconType="check"
+          // size={16} color={checkType[type]}
+        />
+      )}
     </Pressable>
   );
 };

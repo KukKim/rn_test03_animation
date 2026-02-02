@@ -4,8 +4,8 @@ type Variant = "primary" | "secondary";
 type SizeVariant = "s" | "m" | "l";
 
 export const containerType: Record<Variant, ViewStyle> = {
-  primary: {},
-  secondary: {},
+  primary: { borderColor: "#2563eb" },
+  secondary: { borderColor: "#64748b" },
 };
 
 export const sizeType: Record<SizeVariant, ViewStyle> = {
@@ -20,8 +20,14 @@ export const fontSizeType: Record<SizeVariant, TextStyle> = {
   l: { fontSize: 14 },
 };
 
+export const checkType: Record<Variant, string> = {
+  primary: "#2563eb",
+  secondary: "#64748b",
+};
+
 export interface CheckBoxProps extends ViewProps {
-  value?: boolean;
+  value: boolean;
+  onValueChange: Function;
   type?: Variant;
   size?: SizeVariant;
 }

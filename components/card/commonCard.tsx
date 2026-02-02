@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     borderRadius: 5,
-    flexDirection: "row",
+    // flexDirection: "row",
     padding: 10,
   },
 });
