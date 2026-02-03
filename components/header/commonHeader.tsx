@@ -10,7 +10,7 @@ const CommonHeader = ({
 }: HeaderProps) => {
   const LeftCompnont = () => {
     if (leftTitle) {
-      return <Text>{leftTitle}</Text>;
+      return <Text style={styles.titleText}>{leftTitle}</Text>;
     } else if (leftComponent) {
       return leftComponent;
     }
@@ -42,6 +42,11 @@ const styles = StyleSheet.create({
     padding: 10,
     flexDirection: "row",
     justifyContent: "space-between",
+  },
+  titleText: {
+    fontFamily: "Roboto",
+    fontWeight: 700,
+    fontSize: 20,
   },
 });
 
