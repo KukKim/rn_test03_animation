@@ -9,6 +9,7 @@ import { CommonListView } from "./listView";
 import { CommonPopOver } from "./popover";
 import { CircleProgressBar, LineProgressBar } from "./progressBar";
 import { CommonSpinner } from "./spinner";
+import { CommonToggle } from "./toggle";
 
 export {
   CircleProgressBar,
@@ -22,6 +23,7 @@ export {
   CommonListView,
   CommonPopOver,
   CommonSpinner,
+  CommonToggle,
   LineProgressBar,
   NumberBadge,
 };

@@ -20,7 +20,6 @@ const CommonBadge = ({
       style={[styles.container, sizeType[size], containerType[type]]}
       {...props}
     >
-      {children}
       {typeText && (
         <Text style={[styles.innerText, fontSizeType[size], textType[type]]}>
           {typeText}
@@ -33,6 +32,7 @@ const CommonBadge = ({
 const styles = StyleSheet.create({
   container: {
     borderRadius: 12,
+    alignSelf: "flex-start",
     alignItems: "center",
     justifyContent: "center",
   },

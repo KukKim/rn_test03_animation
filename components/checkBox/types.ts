@@ -14,6 +14,12 @@ export const sizeType: Record<SizeVariant, ViewStyle> = {
   l: { width: 24, height: 24 },
 };
 
+export const iconSizeType: Record<SizeVariant, number> = {
+  s: 12,
+  m: 16,
+  l: 20,
+};
+
 export const fontSizeType: Record<SizeVariant, TextStyle> = {
   s: { fontSize: 10 },
   m: { fontSize: 12 },

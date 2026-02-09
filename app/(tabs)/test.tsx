@@ -7,6 +7,7 @@ import {
   CommonInput,
   CommonPopOver,
   CommonSpinner,
+  CommonToggle,
   LineProgressBar,
   NumberBadge,
 } from "@/components";
@@ -16,9 +17,11 @@ import { ScrollView, StyleSheet, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function TestScreen() {
+  console.log("Test");
   const [showPopOver, setShowPopOver] = useState(false);
   const router = useRouter();
   const [checkBoxValue, setCheckBoxValue] = useState(false);
+  const [toggleValue, setToggleValue] = useState(false);
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.container}>
@@ -64,6 +67,13 @@ export default function TestScreen() {
               </CommonPopOver>
             )}
           </CommonButton>
+        </CommonCard>
+
+        <CommonCard title="Toggle">
+          <CommonToggle
+            value={toggleValue}
+            // onValueChange={setToggleValue(!toggleValue)}
+          />
         </CommonCard>
 
         <CommonButton

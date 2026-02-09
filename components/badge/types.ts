@@ -19,6 +19,12 @@ export const sizeType: Record<SizeVariant, ViewStyle> = {
   l: { width: 24, height: 24 },
 };
 
+export const expandedSizeType: Record<SizeVariant, ViewStyle> = {
+  s: { width: 28, height: 16 },
+  m: { width: 32, height: 20 },
+  l: { width: 36, height: 24 },
+};
+
 export const fontSizeType: Record<SizeVariant, TextStyle> = {
   s: { fontSize: 10 },
   m: { fontSize: 12 },

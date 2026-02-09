@@ -1,39 +1,74 @@
-import { CommonHeader, CommonIcon } from "@/components";
+import { CommonHeader, CommonIcon, CommonInput } from "@/components";
 import { useState } from "react";
-import { Pressable, StyleSheet, View } from "react-native";
+import {
+  LayoutAnimation,
+  Platform,
+  Pressable,
+  StyleSheet,
+  UIManager,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
+if (
+  Platform.OS === "android" &&
+  UIManager.setLayoutAnimationEnabledExperimental
+) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
 
 export default function MenuScreen() {
   const [searchable, setSearchable] = useState(false);
+
+  const setSearchableWithAnimation = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
+    setSearchable(!searchable);
+  };
   return (
     <SafeAreaView style={styles.container}>
       {searchable ? (
-        <View></View>
+        <CommonHeader
+          leftComponent={
+            <View
+              style={{
+                width: "100%",
+              }}
+            >
+              <CommonInput />
+            </View>
+          }
+          rightCompnent={
+            <View
+              style={{
+                flexDirection: "row",
+                gap: 5,
+              }}
+            >
+              <Pressable onPress={setSearchableWithAnimation}>
+                <CommonIcon iconType="search" />
+              </Pressable>
+            </View>
+          }
+        />
       ) : (
-        <View>
-          <CommonHeader
-            leftTitle={"Menu"}
-            rightCompnent={
-              <View
-                style={{
-                  flexDirection: "row",
-                  gap: 5,
-                }}
-              >
-                <Pressable>
-                  <CommonIcon iconType="setting" />
-                </Pressable>
-                <Pressable
-                  onPress={() => {
-                    setSearchable(!searchable);
-                  }}
-                >
-                  <CommonIcon iconType="search" />
-                </Pressable>
-              </View>
-            }
-          />
-        </View>
+        <CommonHeader
+          leftTitle={"Menu"}
+          rightCompnent={
+            <View
+              style={{
+                flexDirection: "row",
+                gap: 5,
+              }}
+            >
+              <Pressable>
+                <CommonIcon iconType="setting" />
+              </Pressable>
+              <Pressable onPress={setSearchableWithAnimation}>
+                <CommonIcon iconType="search" />
+              </Pressable>
+            </View>
+          }
+        />
       )}
     </SafeAreaView>
   );

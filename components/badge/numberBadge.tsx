@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import {
   NumberBadgeProps,
   containerType,
+  expandedSizeType,
   fontSizeType,
   sizeType,
   textType,
@@ -17,7 +18,13 @@ const NumberBadge = ({
 }: NumberBadgeProps) => {
   return (
     <View
-      style={[styles.container, sizeType[size], containerType[type]]}
+      style={[
+        styles.container,
+        maxNumber && number > maxNumber
+          ? expandedSizeType[size]
+          : sizeType[size],
+        containerType[type],
+      ]}
       {...props}
     >
       <Text style={[styles.innerText, fontSizeType[size], textType[type]]}>
@@ -30,6 +37,7 @@ const NumberBadge = ({
 const styles = StyleSheet.create({
   container: {
     borderRadius: 12,
+    alignSelf: "flex-start",
     alignItems: "center",
     justifyContent: "center",
   },

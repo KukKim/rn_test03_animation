@@ -1,6 +1,12 @@
 import { Pressable, StyleSheet } from "react-native";
 import { CommonIcon } from "../icon";
-import { CheckBoxProps, containerType, sizeType } from "./types";
+import {
+  CheckBoxProps,
+  checkType,
+  containerType,
+  iconSizeType,
+  sizeType,
+} from "./types";
 
 const CommonCheckBox = ({
   children,
@@ -23,7 +29,8 @@ const CommonCheckBox = ({
       {value && (
         <CommonIcon
           iconType="check"
-          // size={16} color={checkType[type]}
+          size={iconSizeType[size]}
+          color={checkType[type]}
         />
       )}
     </Pressable>

@@ -1,4 +1,5 @@
-import { TextStyle, View, ViewProps, ViewStyle } from "react-native";
+import React from "react";
+import { TextStyle, ViewProps, ViewStyle } from "react-native";
 
 type Variant = "primary" | "secondary";
 type SizeVariant = "s" | "m" | "l";
@@ -28,8 +29,8 @@ export const fontSizeType: Record<SizeVariant, TextStyle> = {
 export interface HeaderProps extends ViewProps {
   type?: Variant;
   size?: SizeVariant;
-  leftComponent?: View;
+  leftComponent?: typeof React.Component;
   leftTitle?: string;
-  rightCompnent?: View;
+  rightCompnent?: typeof React.Component;
   rightTitle?: string;
 }
